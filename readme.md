@@ -24,6 +24,7 @@
     proyecto_HotelRincon_PedroDiazJulianAgudelo/
     |
     ├──index.html
+    ├──sidebar.js
     ├──reservas.html 
     ├── contacto.html 
     ├── login.html 
