@@ -10,6 +10,7 @@ box-sizing:border-box;
 
 body{
 font-family:Arial,sans-serif;
+margin: auto;
 }
 
 /* NAVBAR */
@@ -49,7 +50,7 @@ height:100vh;
 background:white;
 padding:30px 20px;
 transition:0.3s;
-box-shadow:4px 0 12px rgba(0,0,0,0.1);
+box-shadow:4px 0 12px rgba(241, 241, 241, 0.1);
 }
 
 .sidebar.activo{
