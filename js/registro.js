@@ -4,11 +4,18 @@ formulario.addEventListener("submit", (e) => {
 
     e.preventDefault();
 
+
+
     // OBTENER DATOS
 
     const nombre = document.querySelector("#Nombre").value;
     const correo = document.querySelector("#Correo").value;
     const contraseña = document.querySelector("#Contraseña").value;
+
+
+    // Objeto admin
+
+
 
     // CREAR OBJETO USUARIO
 
