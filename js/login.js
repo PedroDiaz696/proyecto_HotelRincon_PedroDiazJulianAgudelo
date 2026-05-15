@@ -22,6 +22,7 @@ loginForm.addEventListener("submit", (e) => {
         correo === admin.correo &&
         contraseña === admin.contraseña
     ){
+        localStorage.setItem("usuarioLogueado", "true");
 
         alert("Bienvenido Administrador");
 
@@ -46,6 +47,8 @@ loginForm.addEventListener("submit", (e) => {
     // VALIDAR LOGIN
 
     if(usuarioEncontrado){
+
+        localStorage.setItem("usuarioLogueado", "true");
 
         alert("Inicio de sesión exitoso");
 
