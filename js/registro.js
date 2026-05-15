@@ -4,47 +4,104 @@ formulario.addEventListener("submit", (e) => {
 
     e.preventDefault();
 
-
-
     // OBTENER DATOS
 
-    const nombre = document.querySelector("#Nombre").value;
-    const correo = document.querySelector("#Correo").value;
-    const contraseña = document.querySelector("#Contraseña").value;
+    const nombre = document.querySelector("#Nombre").value.trim();
+    const correo = document.querySelector("#Correo").value.trim();
+    const contraseña = document.querySelector("#Contraseña").value.trim();
+    const numeroid = document.querySelector("#numeroid").value.trim();
+    const telefono = document.querySelector("#telefono").value.trim();
+    const nacionalidad = document.querySelector("#nacionalidad").value.trim();
 
+    // VALIDACIONES
 
-    // Objeto admin
+    // NOMBRE
 
+    const regexNombre = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
 
+    if(nombre.length < 3){
+        alert("El nombre debe tener mínimo 3 caracteres");
+        return;
+    }
 
-    // CREAR OBJETO USUARIO
+    if(!regexNombre.test(nombre)){
+        alert("El nombre solo puede contener letras");
+        return;
+    }
+
+    // CORREO
+
+    const regexCorreo = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    if(!regexCorreo.test(correo)){
+        alert("Correo inválido");
+        return;
+    }
+
+    // CONTRASEÑA
+
+    const regexPassword =
+    /^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&]).{8,}$/;
+
+    if(!regexPassword.test(contraseña)){
+        alert("La contraseña debe tener mínimo 8 caracteres, una mayúscula, un número y un símbolo");
+        return;
+    }
+
+    // NUMERO ID
+
+    if(numeroid.length < 6){
+        alert("Número ID inválido");
+        return;
+    }
+
+    // TELEFONO
+
+    const regexTelefono = /^[0-9]{10}$/;
+
+    if(!regexTelefono.test(telefono)){
+        alert("Teléfono inválido");
+        return;
+    }
+
+    // NACIONALIDAD
+
+    const regexNacionalidad = /^[a-zA-ZáéíóúÁÉÍÓÚñÑ\s]+$/;
+
+    if(!regexNacionalidad.test(nacionalidad)){
+        alert("Nacionalidad inválida");
+        return;
+    }
+
+    // CREAR OBJETO
 
     const usuario = {
-        nombre: nombre,
-        correo: correo,
-        contraseña: contraseña
+        nombre,
+        correo,
+        contraseña,
+        numeroid,
+        telefono,
+        nacionalidad
     };
 
-    // OBTENER USUARIOS GUARDADOS
+    // OBTENER USUARIOS
 
     let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
 
-    // VALIDAR SI EL CORREO YA EXISTE
+    // VALIDAR CORREO EXISTENTE
 
     const usuarioExiste = usuarios.some(user => user.correo === correo);
 
     if(usuarioExiste){
-
         alert("Este correo ya está registrado");
         return;
-
     }
 
-    // AGREGAR NUEVO USUARIO
+    // AGREGAR USUARIO
 
     usuarios.push(usuario);
 
-    // GUARDAR EN LOCAL STORAGE
+    // GUARDAR
 
     localStorage.setItem("usuarios", JSON.stringify(usuarios));
 
@@ -52,11 +109,11 @@ formulario.addEventListener("submit", (e) => {
 
     alert("Registro exitoso");
 
-    // LIMPIAR FORMULARIO
+    // LIMPIAR
 
     formulario.reset();
 
-    // REDIRIGIR
+    // REDIRECCION
 
     window.location.href = "index.html";
 
