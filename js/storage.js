@@ -145,3 +145,5 @@ function guardarReservas(reservas){
     );
 
 }
+
+obtenerHabitaciones();
