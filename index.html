@@ -4,219 +4,168 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
   <title>Rincón del Carmen</title>
   <script src="js/sidebar.js" defer></script>
-  <script src="js/reservas.js"></script>
+  <script src="js/reservas.js" defer></script>
+  <script src="js/components/carousel.js"></script>
   <link rel="stylesheet" href="./css/styles.css">
 </head>
 
 <body>
 
-    <!-- NAVBAR -->
-    <nav class="navbar">
-
+  <!-- NAVBAR -->
+  <nav class="navbar">
     <div class="logo">
       <img src="./assets/icons/logotipoHotelRC.png" alt="HOTEL RC" class="logo">
     </div>
-
     <button class="btn-menu">
-        <img src="assets/icons/barra-de-menus.png" alt="☰" class="icono-menu">
+      <img src="assets/icons/barra-de-menus.png" alt="☰" class="icono-menu">
     </button>
-
-    </nav>
-
-    <aside class="sidebar">
-
-    <h2>Menú</h2>
-
-    <nav>
-
-        <a href="index.html">Inicio</a>
-
-        <a href="reservas.html">
-          Reservas
-        </a>
-
-        <a href="contacto.html">
-          Contacto
-        </a>
-
-        <a href="login.html">
-          Iniciar Sesión
-        </a>
-
-        <a href="registro.html">
-          Registrarse
-        </a>
-
-    </nav>
-
-    </aside>
-
   </nav>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="sidebar-hotel-label">Hotel</span>
+      <h2>El Rincón</h2>
+      <span class="sidebar-hotel-sub">Del Carmen</span>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="contacto.html">Contacto</a>
+      <hr class="nav-divider">
+      <a href="login.html">Iniciar Sesión</a>
+      <a href="registro.html">Registrarse</a>
+    </nav>
+  </aside>
 
   <!-- PORTADA -->
   <section class="portada">
-
     <div class="contenido-portada">
-
-      <h1>
-        Hotel El Rincón del Carmen
-      </h1>
-
-      <p>
-        Descansa con lujo y comodidad
-      </p>
-
-      <a href="#habitaciones" class="btn-reservar">
-        Reservar ahora
-      </a>
-
+      <h1>Hotel El Rincón del Carmen</h1>
+      <p>Descansa con lujo y comodidad</p>
+      <a href="#habitaciones" class="btn-reservar">Reservar ahora</a>
     </div>
-
   </section>
 
-  <!-- SERVICIOS -->
-  <section class="servicios">
-
-    <h2>
-      Nuestros Servicios
-    </h2>
-
-    <div class="contenedor-servicios">
-
-      <div class="card-servicio">
-        <h3>WiFi</h3>
-        <p>Internet de alta velocidad.</p>
+  <!-- SECCIÓN: ÁREAS DEL HOTEL (NUEVA - GRID ESTÁNDAR) -->
+  <section class="seccion-areas">
+    <h2 class="titulo-seccion">Nuestras Áreas</h2>
+    <div class="contenedor-areas">
+      <div class="card-area">
+        <img src="./assets/img/lobby.jpg" alt="Lobby">
+        <h3>Lobby Principal</h3>
       </div>
-
-      <div class="card-servicio">
-        <h3>Spa</h3>
-        <p>Zona de relajación y masajes.</p>
+      <div class="card-area">
+        <img src="./assets/img/terraza.jpg" alt="Terraza">
+        <h3>Terraza Mirador</h3>
       </div>
-
-      <div class="card-servicio">
-        <h3>Restaurante</h3>
-        <p>Comida gourmet y buffet.</p>
+      <div class="card-area">
+        <img src="./assets/img/jardines.jpg" alt="Jardines">
+        <h3>Jardines</h3>
       </div>
-
-      <div class="card-servicio">
-        <h3>Piscina</h3>
-        <p>Zonas húmedas y jacuzzi.</p>
+      <div class="card-area">
+        <img src="./assets/img/senderos.webp" alt="Senderos">
+        <h3>Senderos Naturales</h3>
       </div>
-
     </div>
-
   </section>
 
-  <!-- HABITACIONES -->
+  <!-- SECCIÓN: MUESTRAS FOTOGRÁFICAS DE SERVICIOS (REDISEÑADA FLEXBOX) -->
+  <section class="seccion-servicios-fotos">
+    <h2 class="titulo-seccion">Nuestros Servicios Exclusivos</h2>
+
+    <div class="bloque-servicio">
+      <div class="columna-imagen">
+        <img src="./assets/img/restaurante.avif" alt="Comidas">
+      </div>
+      <div class="columna-texto">
+        <h3>Alta Gastronomía</h3>
+        <p>Disfrute de una propuesta culinaria excelente. Platos gourmet y un buffet preparado por nuestros cocineros con ingredientes frescos todos los días.</p>
+      </div>
+    </div>
+
+    <div class="bloque-servicio inverso">
+      <div class="columna-imagen">
+        <img src="./assets/img/spa.avif" alt="Spa">
+      </div>
+      <div class="columna-texto">
+        <h3>Spa y Relajación</h3>
+        <p>Un espacio dedicado al descanso de su mente y cuerpo. Ofrecemos masajes y tratamientos diseñados para su total tranquilidad.</p>
+      </div>
+    </div>
+
+    <div class="bloque-servicio">
+      <div class="columna-imagen">
+        <img src="./assets/img/piscina.jpg" alt="Zonas Húmedas">
+      </div>
+      <div class="columna-texto">
+        <h3>Zonas Húmedas</h3>
+        <p>Disfrute de nuestras piscinas climatizadas y jacuzzi. El lugar perfecto para refrescarse y relajarse bajo el sol de la tarde.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECCIÓN: HABITACIONES DESTACADAS (CARRUSEL SIN PROPIEDADES EXTRAÑAS) -->
   <section class="habitaciones" id="habitaciones">
+    <h2 class="titulo-seccion">Habitaciones Destacadas</h2>
 
-    <h2>
-      Habitaciones Destacadas
-    </h2>
-
-    <div class="contenedor-habitaciones">
-
-      <div class="card-habitacion">
-
-        <img src="./assets/img/habitacion1.webp" alt="Habitación">
-
-        <h3>Habitación Deluxe</h3>
-
-        <p>2 camas - Jacuzzi - WiFi</p>
-
-        <span>$250.000 / noche</span>
-
-        <a href="#" onclick="reservarHabitacion()">Reservar</a>
-
+    <div class="carrusel-contenedor">
+      <button class="carrusel-btn prev">Anterior</button>
+      
+      <div class="carrusel-track">
+        <div class="card-habitacion">
+          <img src="./assets/img/habitacion1.webp" alt="Habitación">
+          <h3>Habitación Deluxe</h3>
+          <p>2 camas - Jacuzzi - WiFi</p>
+          <span>$250.000 / noche</span>
+          <a href="#" onclick="reservarHabitacion()">Reservar</a>
+        </div>
+        <div class="card-habitacion">
+          <img src="./assets/img/habitacion2.jpg" alt="Habitación">
+          <h3>Habitación Familiar</h3>
+          <p>4 personas - Minibar</p>
+          <span>$350.000 / noche</span>
+          <a href="#" onclick="reservarHabitacion()">Reservar</a>
+        </div>
+        <div class="card-habitacion">
+          <img src="./assets/img/habitacion3.jpg" alt="Habitación">
+          <h3>Suite Ejecutiva</h3>
+          <p>King Bed - Vista panorámica - WiFi</p>
+          <span>$420.000 / noche</span>
+          <a href="#" onclick="reservarHabitacion()">Reservar</a>
+        </div>
+        <div class="card-habitacion">
+          <img src="./assets/img/habitacion4.jpg" alt="Habitación">
+          <h3>Habitación Premium</h3>
+          <p>2 personas - Balcón - Minibar</p>
+          <span>$310.000 / noche</span>
+          <a href="#" onclick="reservarHabitacion()">Reservar</a>
+        </div>
+        <div class="card-habitacion">
+          <img src="./assets/img/habitacion5.jpg" alt="Habitación">
+          <h3>Suite Presidencial</h3>
+          <p>Jacuzzi - Sala privada - Terraza</p>
+          <span>$650.000 / noche</span>
+          <a href="#" onclick="reservarHabitacion()">Reservar</a>
+        </div>
+        <div class="card-habitacion">
+          <img src="./assets/img/habitacion6.jpg" alt="Habitación">
+          <h3>Suite Romántica</h3>
+          <p>Cama Queen - Jacuzzi - Vista nocturna</p>
+          <span>$480.000 / noche</span>
+          <a href="#" onclick="reservarHabitacion()">Reservar</a>
+        </div>
       </div>
 
-      <div class="card-habitacion">
-
-        <img src="./assets/img/habitacion2.jpg" alt="Habitación">
-
-        <h3>Habitación Familiar</h3>
-
-        <p>4 personas - Minibar</p>
-
-        <span>$350.000 / noche</span>
-
-        <a href="#" onclick="reservarHabitacion()">Reservar</a>
-
-      </div>
-
-      <div class="card-habitacion">
-
-        <img src="./assets/img/habitacion3.jpg" alt="Habitación">
-
-        <h3>Suite Ejecutiva</h3>
-
-        <p>King Bed - Vista panorámica - WiFi</p>
-
-        <span>$420.000 / noche</span>
-
-        <a href="#" onclick="reservarHabitacion()">Reservar</a>
-
-      </div>
-
-      <div class="card-habitacion">
-
-        <img src="./assets/img/habitacion4.jpg" alt="Habitación">
-
-        <h3>Habitación Premium</h3>
-
-        <p>2 personas - Balcón - Minibar</p>
-
-        <span>$310.000 / noche</span>
-
-        <a href="#" onclick="reservarHabitacion()">Reservar</a>
-
-      </div>
-
-      <div class="card-habitacion">
-
-        <img src="./assets/img/habitacion5.jpg" alt="Habitación">
-
-        <h3>Suite Presidencial</h3>
-
-        <p>Jacuzzi - Sala privada - Terraza</p>
-
-        <span>$650.000 / noche</span>
-
-        <a href="#" onclick="reservarHabitacion()">Reservar</a>
-
-      </div>
-
-      <div class="card-habitacion">
-
-        <img src="./assets/img/habitacion6.jpg" alt="Habitación">
-
-        <h3>Suite Romántica</h3>
-
-        <p>Cama Queen - Jacuzzi - Vista nocturna</p>
-
-        <span>$480.000 / noche</span>
-
-        <a href="#" onclick="reservarHabitacion()">Reservar</a>
-
-      </div>
+      <button class="carrusel-btn next">Siguiente</button>
     </div>
-
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-
     <h3>Hotel El Rincón del Carmen</h3>
-
     <p>Dirección: Bucaramanga, Colombia</p>
-
     <p>Teléfono: +57 300 000 0000</p>
-
   </footer>
-
-</body>
-
-</html>

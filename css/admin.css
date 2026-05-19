@@ -1,0 +1,120 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.admin-container{
+    display: flex; /*sidebar a la izquierda y contenido a la derecha*/
+    min-height: 100vh; /*hace que el panel ocupe toda la altura de la pantalla*/
+}
+
+/* SIDEBAR */
+
+.sidebar{
+    width: 250px;
+    background-color: #1e293b;
+    color: white;
+    padding: 20px;
+}
+
+.logo{
+    margin-bottom: 40px;
+}
+
+.sidebar ul{
+    list-style: none;
+}
+
+.sidebar li{
+    margin: 20px 0;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.sidebar li:hover{
+    color: #38bdf8;
+}
+
+/* CONTENIDO */
+
+.main-content{
+    flex: 1; /*hace que el contenido principal ocupe todo el espacio restante*/
+    padding: 30px;
+}
+
+/* TOPBAR */
+
+.topbar{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.topbar button{
+    padding: 12px 20px;
+    border: none;
+    background-color: #0ea5e9;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* FORMULARIO */
+
+.form-section{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 30px;
+}
+
+#formHabitacion{
+    display: grid;
+    gap: 15px;
+}
+
+#formHabitacion input{
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
+
+.checkbox-group{
+    display: flex;
+    gap: 20px;
+}
+
+#formHabitacion button{
+    padding: 12px;
+    border: none;
+    background-color: #1e293b;
+    color: white;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+/* TABLA */
+
+.table-section{
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+table{
+    width: 100%;
+    border-collapse: collapse; /*une bordes de la tabla para que se vea limpia */
+}
+
+th, td{
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}

@@ -1,11 +1,148 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ADMINISTRACION</title>
+    <title>Panel Admin</title>
+    <link rel="stylesheet" href="./js/admin.js">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
+
 <body>
-    
+
+    <div class="admin-container">
+
+        <!-- SIDEBAR -->
+
+        <aside class="sidebar">
+
+            <h2 class="logo">Hotel Rincón</h2>
+
+            <nav>
+
+                <ul>
+
+                    <li>Dashboard</li>
+                    <li>Habitaciones</li>
+                    <li>Reservas</li>
+                    <li>Cerrar sesión</li>
+
+                </ul>
+
+            </nav>
+
+        </aside>
+
+        <!-- CONTENIDO PRINCIPAL -->
+
+        <main class="main-content">
+
+            <header class="topbar">
+
+                <h1>Panel de Administración</h1>
+
+                <button id="btnAgregar">
+                    + Agregar habitación
+                </button>
+
+            </header>
+
+            <!-- FORMULARIO -->
+
+            <section class="form-section">
+
+                <form id="formHabitacion">
+
+                    <input
+                        type="text"
+                        id="nombre"
+                        placeholder="Nombre habitación"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="camas"
+                        placeholder="Cantidad camas"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="personas"
+                        placeholder="Máximo personas"
+                        required
+                    >
+
+                    <input
+                        type="number"
+                        id="precio"
+                        placeholder="Precio por noche"
+                        required
+                    >
+
+                    <div class="checkbox-group">
+
+                        <label>
+                            <input type="checkbox" id="internet">
+                            Internet
+                        </label>
+
+                        <label>
+                            <input type="checkbox" id="minibar">
+                            Minibar
+                        </label>
+
+                        <label>
+                            <input type="checkbox" id="jacuzzi">
+                            Jacuzzi
+                        </label>
+
+                    </div>
+
+                    <button type="submit">
+                        Guardar habitación
+                    </button>
+
+                </form>
+
+            </section>
+
+            <!-- TABLA -->
+
+            <section class="table-section">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>Habitación</th>
+                            <th>Camas</th>
+                            <th>Personas</th>
+                            <th>Precio</th>
+                            <th>Servicios</th>
+                            <th>Acciones</th>
+
+                        </tr>
+
+                    </thead>
+
+                    <tbody id="tablaHabitaciones">
+
+                    </tbody>
+
+                </table>
+
+            </section>
+
+        </main>
+
+    </div>
+
+    <script src="./js/admin.js"></script>
+
 </body>
 </html>

@@ -22,33 +22,37 @@
 
 # ESTRUCTURA DE CARPETAS/ORGANIZACION DEL PROYECTO
     proyecto_HotelRincon_PedroDiazJulianAgudelo/
-    |
-    ├──index.html
-    ├──sidebar.js
-    ├──reservas.html 
-    ├── contacto.html 
-    ├── login.html 
-    ├── registro.html 
-    ├── admin.html 
-    │ ├── css/ 
-    │ ├── styles.css 
-    │ ├── reservas.css 
-    │ ├── contacto.css 
-    │ ├── login.css 
-    │ └── admin.css 
-    │ ├── js/ 
-    │ ├── app.js 
-    │ ├── reservas.js 
-    │ ├── login.js 
-    │ ├── registro.js 
-    │ ├── admin.js 
-    │ ├── storage.js 
-    │ ├── validations.js 
-    │ │ │ └── components/ 
-    │ ├── navbar.js 
-    │ ├── footer.js 
-    │ ├── room-card.js 
-    │ └── carousel.js 
-    │ ├── assets/ 
-    │ ├── img/ 
-    │ └── icons/
+│
+├── index.html
+├── reservas.html
+├── contacto.html
+├── login.html
+├── registro.html
+├── admin.html
+│
+├── css/
+│   ├── styles.css
+│   ├── reservas.css
+│   ├── contacto.css
+│   ├── login.css
+│   └── admin.css
+│
+├── js/
+│   ├── app.js
+│   ├── reservas.js
+│   ├── login.js
+│   ├── registro.js
+│   ├── admin.js
+│   ├── storage.js
+│   ├── validations.js
+│   └── sidebar.js
+│
+├── components/
+│   ├── navbar.js
+│   ├── footer.js
+│   ├── room-card.js
+│   └── carousel.js
+│
+└── assets/
+    ├── img/
+    └── icons/
