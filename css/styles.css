@@ -1,0 +1,383 @@
+html {
+  scroll-behavior: smooth;
+}
+
+/* RESET GENERAL */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* BODY */
+body {
+  font-family: Arial, sans-serif;
+  margin: auto;
+  background-color: #f5f5f5;
+  color: #222222;
+}
+
+/* TITULO GLOBAL SECCIONES */
+.titulo-seccion {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #222222;
+}
+
+/* NAVBAR */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 30px;
+  height: 100px;
+  background-color: transparent;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 900;
+}
+
+.logo {
+  width: 160px;
+  height: auto;
+  padding-top: 15px;
+}
+
+.btn-menu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+.icono-menu {
+  width: 45px;
+  height: 45px;
+  object-fit: contain;
+  filter: invert(1);
+}
+
+/* SIDEBAR */
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -260px;
+  width: 250px;
+  height: 100vh;
+  background: #e5fcf7;
+  padding: 30px 20px;
+  transition: 0.3s;
+  box-shadow: 4px 0 20px rgba(0,0,0,0.08);
+  z-index: 1000;
+  border-left: 3px solid #C4A052;
+}
+
+.sidebar.activo {
+  left: 0;
+}
+
+.sidebar-logo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding-bottom: 24px;
+  border-bottom: 1px solid rgba(196, 160, 82, 0.25);
+}
+
+.sidebar-hotel-label {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #C4A052;
+}
+
+.sidebar-logo h2 {
+  font-size: 1.5rem;
+  color: #2C2A22;
+  margin: 6px 0 4px;
+  font-weight: 600;
+}
+
+.sidebar-hotel-sub {
+  font-size: 9px;
+  text-transform: uppercase;
+  color: #C4A052;
+  opacity: 0.7;
+}
+
+.sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  margin-top: 24px;
+}
+
+.sidebar a {
+  text-decoration: none;
+  color: #4A4540;
+  font-size: 1rem;
+  padding: 10px 14px;
+  border-radius: 4px;
+  transition: 0.2s;
+}
+
+.sidebar a:hover {
+  background: rgba(196, 160, 82, 0.09);
+  color: #C4A052;
+  padding-left: 18px;
+}
+
+.nav-divider {
+  border: none;
+  border-top: 1px solid rgba(196, 160, 82, 0.2);
+  margin: 8px 0;
+}
+
+/* PORTADA (Fondo Negro plano de respaldo) */
+.portada {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: white;
+  padding-top: 70px;
+  background-color: #333333;
+  background-image: url("../assets/img/hotel.webp");
+  background-size: cover;
+  background-position: center;
+}
+
+.portada h1 {
+  font-size: 3rem;
+  font-style: italic;
+}
+
+.portada p {
+  margin: 20px 0;
+  font-size: 1.2rem;
+  color: white;
+}
+
+.btn-reservar {
+  display: inline-block;
+  padding: 14px 28px;
+  background: #eed86a;
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: 0.3s ease;
+}
+
+.btn-reservar:hover {
+  background: #a3823c;
+}
+
+/* SECCIÓN NUEVA: ÁREAS DEL HOTEL (GRID CONVENCIAL) */
+.seccion-areas {
+  padding: 60px 20px;
+  background-color: white;
+}
+
+.contenedor-areas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.card-area {
+  background-color: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  overflow: hidden;
+  text-align: center;
+  padding-bottom: 15px;
+}
+
+.card-area img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-area h3 {
+  margin-top: 15px;
+  font-size: 1.2rem;
+  color: #222222;
+}
+
+
+/* SECCIÓN REEMPLAZADA: MUESTRAS DE SERVICIOS (BLOQUES FLEXBOX) */
+.seccion-servicios-fotos {
+  padding: 60px 20px;
+  background-color: #f9f9f9;
+}
+
+.bloque-servicio {
+  display: flex;
+  background-color: white;
+  margin-bottom: 30px;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.bloque-servicio.inverso {
+  flex-direction: row-reverse;
+}
+
+.columna-imagen {
+  flex: 1;
+}
+
+.columna-imagen img {
+  width: 100%;
+  height: 100%;
+  min-height: 250px;
+  display: block;
+  object-fit: cover;
+}
+
+.columna-texto {
+  flex: 1;
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.columna-texto h3 {
+  font-size: 1.6rem;
+  margin-bottom: 15px;
+  color: #C4A052;
+}
+
+.columna-texto p {
+  line-height: 1.6;
+  color: #555555;
+}
+
+/* SECCIÓN: HABITACIONES (OPTIMIZADO A CARRUSEL BÁSICO) */
+.habitaciones {
+  padding: 60px 20px;
+  background-color: #f0f0f0;
+}
+
+.carrusel-contenedor {
+  display: flex;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.carrusel-track {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  width: 100%;
+  padding: 10px 0;
+}
+
+/* Ocultar barra de scroll visualmente */
+.carrusel-track::-webkit-scrollbar {
+  display: none;
+}
+
+.card-habitacion {
+  flex: 0 0 320px; /* Ancho fijo para cada tarjeta en el carrusel */
+  background-color: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+
+.card-habitacion img {
+  width: 100%;
+  height: 250px;
+  object-fit: cover;
+}
+
+.card-habitacion h3 {
+  margin-top: 15px;
+  font-size: 1.5rem;
+  padding-left: 15px;
+}
+
+.card-habitacion p {
+  margin-top: 10px;
+  padding: 0 15px;
+}
+
+.card-habitacion span {
+  display: block;
+  margin-top: 10px;
+  font-weight: bold;
+  color: #C4A052;
+  padding: 0 15px;
+}
+
+.card-habitacion a {
+  display: inline-block;
+  margin: 25px;
+  padding: 14px 28px;
+  border-radius: 12px;
+  cursor: pointer;
+  background: black;
+  color: white;
+  font-size: 1rem;
+  font-weight: bold;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.card-habitacion a:hover {
+  background-color: #333;
+}
+
+/* BOTONES DEL CARRUSEL */
+.carrusel-btn {
+  background-color: white;
+  border: 1px solid #ccc;
+  padding: 10px 15px;
+  cursor: pointer;
+  font-weight: bold;
+  border-radius: 5px;
+  margin: 0 10px;
+}
+
+.carrusel-btn:hover {
+  background-color: #C4A052;
+  color: white;
+}
+
+/* FOOTER */
+.footer {
+  padding: 30px;
+  text-align: center;
+  background-color: black;
+  color: white;
+}
+
+/* RESPONSIVE RESPONSIVO BÁSICO */
+@media (max-width: 768px) {
+  .bloque-servicio, .bloque-servicio.inverso {
+    flex-direction: column;
+  }
+  .columna-texto {
+    padding: 20px;
+  }
+}
