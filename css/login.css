@@ -1,36 +1,89 @@
+/* =========================
+   RESET GENERAL
+========================= */
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
+/* =========================
+   BODY
+========================= */
+
 body{
-    
     margin: 0;
-    height: 100vh;
-
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-
-    position: relative;
-    overflow: hidden;
+    min-height: 100vh;
 
     display: flex;
     justify-content: center;
     align-items: center;
 
-    background: rgb(0, 0, 0);
+    padding: 20px;
+
+    background: black;
+
+    position: relative;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    overflow-x: hidden;
+    overflow-y: auto;
 }
 
+/* =========================
+   FONDOS
+========================= */
+
+.fondo{
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    width: 100%;
+    height: 100%;
+
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+
+    transition: opacity 1.5s ease-in-out;
+
+    z-index: -2;
+}
+
+.fondo::after{
+    content: "";
+
+    position: absolute;
+    inset: 0;
+
+    background: rgba(0,0,0,0.45);
+}
+
+.fondo1{
+    opacity: 1;
+}
+
+.fondo2{
+    opacity: 0;
+}
+
+/* =========================
+   CONTENEDOR PRINCIPAL
+========================= */
+
 .contenedorP{
-    width: 400px;
+    width: 100%;
+    max-width: 400px;
 
     background: rgba(255,255,255,0.1);
 
     border: 1px solid rgba(255,255,255,0.2);
 
     backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
 
     border-radius: 20px;
 
@@ -39,24 +92,35 @@ body{
     box-shadow: 0 8px 32px rgba(0,0,0,0.4);
 
     transition: 0.4s;
+
+    z-index: 10;
 }
 
 .contenedorP:hover{
     transform: scale(1.02);
+
     box-shadow: 0 10px 35px rgba(0,0,0,0.6);
 }
 
-/* TITULO */
+/* =========================
+   TITULO
+========================= */
 
 .formulario h2{
     color: white;
+
     text-align: center;
+
     margin-bottom: 30px;
+
     font-size: 32px;
+
     font-family: sans-serif;
 }
 
-/* INPUTS */
+/* =========================
+   INPUTS
+========================= */
 
 .input-box{
     margin-bottom: 20px;
@@ -64,6 +128,7 @@ body{
 
 .input-box input{
     width: 100%;
+
     padding: 15px;
 
     border: none;
@@ -92,10 +157,13 @@ body{
     box-shadow: 0 0 15px rgba(255,255,255,0.3);
 }
 
-/* BOTON */
+/* =========================
+   BOTON
+========================= */
 
 button{
     width: 100%;
+
     padding: 15px;
 
     border: none;
@@ -121,17 +189,27 @@ button:hover{
     box-shadow: 0 5px 15px rgba(0,0,0,0.4);
 }
 
+/* =========================
+   LOGIN
+========================= */
 
 .login{
     text-align: center;
+
     color: white;
+
     margin-top: 20px;
+
     font-family: sans-serif;
+
+    line-height: 1.6;
 }
 
 .login a{
     color: white;
+
     font-weight: bold;
+
     text-decoration: none;
 
     transition: 0.3s;
@@ -139,48 +217,135 @@ button:hover{
 
 .login a:hover{
     color: rgb(200,200,200);
+
     text-decoration: underline;
 }
 
-body{
-    margin: 0;
-    height: 100vh;
+/* =========================
+   TABLETS
+========================= */
 
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
+@media (max-width: 992px){
+
+    .contenedorP{
+        max-width: 380px;
+        padding: 35px;
+    }
+
+    .formulario h2{
+        font-size: 30px;
+    }
 
 }
 
-.fondo{
-    position: fixed;
-    top: 0;
-    left: 0;
+/* =========================
+   MOVILES
+========================= */
 
-    width: 100%;
-    height: 100%;
+@media (max-width: 768px){
 
-    background-size: cover;
-    background-position: center;
+    body{
+        padding: 20px;
+        align-items: center;
+    }
 
-    transition: opacity 1.5s ease-in-out;
+    .contenedorP{
+        width: 100%;
+        max-width: 95%;
 
-    z-index: -2;
+        padding: 30px 20px;
+
+        border-radius: 18px;
+    }
+
+    .formulario h2{
+        font-size: 26px;
+
+        margin-bottom: 25px;
+    }
+
+    .input-box input{
+        padding: 14px;
+
+        font-size: 15px;
+    }
+
+    button{
+        padding: 14px;
+
+        font-size: 15px;
+    }
+
+    .login{
+        font-size: 14px;
+    }
+
 }
 
-.fondo::after{
-    content: "";
+/* =========================
+   CELULARES PEQUEÑOS
+========================= */
 
-    position: absolute;
-    inset: 0;
+@media (max-width: 480px){
 
-    background: rgba(0,0,0,0.45);
+    body{
+        padding: 15px;
+    }
+
+    .contenedorP{
+        max-width: 100%;
+
+        padding: 25px 18px;
+
+        border-radius: 16px;
+    }
+
+    .formulario h2{
+        font-size: 24px;
+    }
+
+    .input-box{
+        margin-bottom: 18px;
+    }
+
+    .input-box input{
+        padding: 13px;
+
+        font-size: 14px;
+    }
+
+    button{
+        padding: 13px;
+
+        font-size: 14px;
+    }
+
+    .login{
+        font-size: 13px;
+    }
+
 }
 
-.fondo1{
-    opacity: 1;
-}
+/* =========================
+   CELULARES MUY PEQUEÑOS
+========================= */
 
-.fondo2{
-    opacity: 0;
+@media (max-width: 320px){
+
+    .contenedorP{
+        padding: 20px 15px;
+    }
+
+    .formulario h2{
+        font-size: 21px;
+    }
+
+    .input-box input{
+        font-size: 13px;
+    }
+
+    button{
+        font-size: 13px;
+    }
+
 }
