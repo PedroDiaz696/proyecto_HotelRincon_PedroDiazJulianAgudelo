@@ -1,32 +1,51 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Panel Admin</title>
-    <link rel="stylesheet" href="./js/admin.js">
-    <link rel="stylesheet" href="css/admin.css">
+
+    <title>Panel de Administración</title>
+
+    <script src="./js/storage.js" defer></script>
+    <script src="js/admin.js" defer></script>
+
+    <link rel="stylesheet" href="./css/admin.css">
+
 </head>
 
 <body>
 
     <div class="admin-container">
 
+        <!-- ========================================= -->
         <!-- SIDEBAR -->
+        <!-- ========================================= -->
 
         <aside class="sidebar">
 
-            <h2 class="logo">Hotel Rincón</h2>
+            <div class="sidebar-logo">
+
+                <h2>Hotel Rincón</h2>
+
+                <p>Panel Admin</p>
+
+            </div>
 
             <nav>
 
                 <ul>
 
                     <li>Dashboard</li>
+
                     <li>Habitaciones</li>
+
                     <li>Reservas</li>
-                    <li>Cerrar sesión</li>
+
+                    <li id="cerrarSesion">
+                        Cerrar sesión
+                    </li>
 
                 </ul>
 
@@ -34,25 +53,40 @@
 
         </aside>
 
+        <!-- ========================================= -->
         <!-- CONTENIDO PRINCIPAL -->
+        <!-- ========================================= -->
 
         <main class="main-content">
 
+            <!-- TOPBAR -->
+
             <header class="topbar">
 
-                <h1>Panel de Administración</h1>
+                <div>
 
-                <button id="btnAgregar">
-                    + Agregar habitación
-                </button>
+                    <h1>Administración de Habitaciones</h1>
+
+                    <p>
+                        Aquí puedes gestionar la información
+                        de las habitaciones del hotel.
+                    </p>
+
+                </div>
 
             </header>
 
-            <!-- FORMULARIO -->
+            <!-- ========================================= -->
+            <!-- FORMULARIO EDITAR -->
+            <!-- ========================================= -->
 
             <section class="form-section">
 
+                <h2>Editar Habitación</h2>
+
                 <form id="formHabitacion">
+
+                    <!-- NOMBRE -->
 
                     <input
                         type="text"
@@ -61,12 +95,16 @@
                         required
                     >
 
+                    <!-- CAMAS -->
+
                     <input
                         type="number"
                         id="camas"
                         placeholder="Cantidad camas"
                         required
                     >
+
+                    <!-- PERSONAS -->
 
                     <input
                         type="number"
@@ -75,6 +113,8 @@
                         required
                     >
 
+                    <!-- PRECIO -->
+
                     <input
                         type="number"
                         id="precio"
@@ -82,55 +122,98 @@
                         required
                     >
 
+                    <!-- SERVICIOS -->
+
                     <div class="checkbox-group">
 
                         <label>
-                            <input type="checkbox" id="internet">
+
+                            <input
+                                type="checkbox"
+                                id="internet"
+                            >
+
                             Internet
+
                         </label>
 
                         <label>
-                            <input type="checkbox" id="minibar">
+
+                            <input
+                                type="checkbox"
+                                id="minibar"
+                            >
+
                             Minibar
+
                         </label>
 
                         <label>
-                            <input type="checkbox" id="jacuzzi">
+
+                            <input
+                                type="checkbox"
+                                id="jacuzzi"
+                            >
+
                             Jacuzzi
+
                         </label>
 
                     </div>
 
+                    <!-- BOTÓN -->
+
                     <button type="submit">
-                        Guardar habitación
+
+                        Guardar Cambios
+
                     </button>
 
                 </form>
 
             </section>
 
-            <!-- TABLA -->
+            <!-- ========================================= -->
+            <!-- TABLA HABITACIONES -->
+            <!-- ========================================= -->
 
             <section class="table-section">
 
+                <h2>Habitaciones del Hotel</h2>
+
                 <table>
+
+                    <!-- ENCABEZADOS -->
 
                     <thead>
 
                         <tr>
 
                             <th>Habitación</th>
+
                             <th>Camas</th>
+
                             <th>Personas</th>
+
                             <th>Precio</th>
+
                             <th>Servicios</th>
+
                             <th>Acciones</th>
 
                         </tr>
 
                     </thead>
 
+                    <!-- CONTENIDO DINÁMICO -->
+
                     <tbody id="tablaHabitaciones">
+
+                        <!--
+                            AQUÍ JAVASCRIPT INSERTA
+                            LAS HABITACIONES
+                            DINÁMICAMENTE
+                        -->
 
                     </tbody>
 
@@ -142,7 +225,18 @@
 
     </div>
 
+    <!-- ========================================= -->
+    <!-- SCRIPTS -->
+    <!-- ========================================= -->
+
+    <!-- STORAGE -->
+
+    <script src="./js/storage.js"></script>
+
+    <!-- ADMIN -->
+
     <script src="./js/admin.js"></script>
 
 </body>
+
 </html>
