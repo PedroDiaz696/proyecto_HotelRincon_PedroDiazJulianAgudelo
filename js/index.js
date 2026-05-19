@@ -68,7 +68,7 @@ function renderizarHabitaciones(){
 
                 </span>
 
-                <a href="#">
+                <a href="#" onclick="reservarHabitacion()">
 
                     Reservar
 

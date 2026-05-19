@@ -12,7 +12,7 @@ if(usuarioLogueado !== "true"){
 }
 
 // ============================================
-// OBTENER ELEMENTOS DEL DOM
+// ELEMENTOS DOM
 // ============================================
 
 const tabla =
@@ -21,6 +21,72 @@ document.getElementById("tablaHabitaciones");
 const formulario =
 document.getElementById("formHabitacion");
 
+// MENÚ
+
+const menuDashboard =
+document.getElementById("menuDashboard");
+
+const menuHabitaciones =
+document.getElementById("menuHabitaciones");
+
+const menuReservas =
+document.getElementById("menuReservas");
+
+// VISTAS
+
+const vistaDashboard =
+document.getElementById("vistaDashboard");
+
+const vistaHabitaciones =
+document.getElementById("vistaHabitaciones");
+
+const vistaReservas =
+document.getElementById("vistaReservas");
+
+// ============================================
+// CAMBIAR VISTAS
+// ============================================
+
+function ocultarVistas(){
+
+    vistaDashboard.style.display = "none";
+
+    vistaHabitaciones.style.display = "none";
+
+    vistaReservas.style.display = "none";
+
+}
+
+// DASHBOARD
+
+menuDashboard.addEventListener("click", () => {
+
+    ocultarVistas();
+
+    vistaDashboard.style.display = "block";
+
+});
+
+// HABITACIONES
+
+menuHabitaciones.addEventListener("click", () => {
+
+    ocultarVistas();
+
+    vistaHabitaciones.style.display = "block";
+
+});
+
+// RESERVAS
+
+menuReservas.addEventListener("click", () => {
+
+    ocultarVistas();
+
+    vistaReservas.style.display = "block";
+
+});
+
 // ============================================
 // OBTENER HABITACIONES
 // ============================================
@@ -28,20 +94,24 @@ document.getElementById("formHabitacion");
 let habitaciones = obtenerHabitaciones();
 
 // ============================================
+// DASHBOARD
+// ============================================
+
+document.getElementById("totalHabitaciones").textContent =
+habitaciones.length;
+
+document.getElementById("totalReservas").textContent =
+1;
+
+// ============================================
 // RENDERIZAR HABITACIONES
 // ============================================
 
 function renderizarHabitaciones(){
 
-    // LIMPIAR TABLA
-
     tabla.innerHTML = "";
 
-    // RECORRER HABITACIONES
-
     habitaciones.forEach(habitacion => {
-
-        // SERVICIOS
 
         let servicios = "";
 
@@ -56,8 +126,6 @@ function renderizarHabitaciones(){
         if(habitacion.jacuzzi){
             servicios += "Jacuzzi";
         }
-
-        // CREAR FILA
 
         tabla.innerHTML += `
 
@@ -97,35 +165,29 @@ function renderizarHabitaciones(){
 
 function editarHabitacion(id){
 
-    // BUSCAR HABITACIÓN
-
     const habitacion =
-        habitaciones.find(h => h.id === id);
-
-    // LLENAR FORMULARIO
+    habitaciones.find(h => h.id === id);
 
     document.getElementById("nombre").value =
-        habitacion.nombre;
+    habitacion.nombre;
 
     document.getElementById("camas").value =
-        habitacion.camas;
+    habitacion.camas;
 
     document.getElementById("personas").value =
-        habitacion.personas;
+    habitacion.personas;
 
     document.getElementById("precio").value =
-        habitacion.precio;
+    habitacion.precio;
 
     document.getElementById("internet").checked =
-        habitacion.internet;
+    habitacion.internet;
 
     document.getElementById("minibar").checked =
-        habitacion.minibar;
+    habitacion.minibar;
 
     document.getElementById("jacuzzi").checked =
-        habitacion.jacuzzi;
-
-    // GUARDAR ID TEMPORAL
+    habitacion.jacuzzi;
 
     localStorage.setItem(
         "habitacionEditando",
@@ -140,21 +202,13 @@ function editarHabitacion(id){
 
 formulario.addEventListener("submit", (e) => {
 
-    // EVITAR RECARGA
-
     e.preventDefault();
 
-    // OBTENER ID
-
     const id =
-        Number(localStorage.getItem("habitacionEditando"));
-
-    // BUSCAR HABITACIÓN
+    Number(localStorage.getItem("habitacionEditando"));
 
     const habitacion =
-        habitaciones.find(h => h.id === id);
-
-    // VALIDAR
+    habitaciones.find(h => h.id === id);
 
     if(!habitacion){
 
@@ -164,48 +218,38 @@ formulario.addEventListener("submit", (e) => {
 
     }
 
-    // ACTUALIZAR DATOS
-
     habitacion.nombre =
-        document.getElementById("nombre").value;
+    document.getElementById("nombre").value;
 
     habitacion.camas =
-        Number(document.getElementById("camas").value);
+    Number(document.getElementById("camas").value);
 
     habitacion.personas =
-        Number(document.getElementById("personas").value);
+    Number(document.getElementById("personas").value);
 
     habitacion.precio =
-        Number(document.getElementById("precio").value);
+    Number(document.getElementById("precio").value);
 
     habitacion.internet =
-        document.getElementById("internet").checked;
+    document.getElementById("internet").checked;
 
     habitacion.minibar =
-        document.getElementById("minibar").checked;
+    document.getElementById("minibar").checked;
 
     habitacion.jacuzzi =
-        document.getElementById("jacuzzi").checked;
-
-    // GUARDAR EN LOCALSTORAGE
+    document.getElementById("jacuzzi").checked;
 
     guardarHabitaciones(habitaciones);
 
-    // VOLVER A RENDERIZAR
-
     renderizarHabitaciones();
-
-    // LIMPIAR FORMULARIO
 
     formulario.reset();
 
-    // ELIMINAR ID TEMPORAL
+    localStorage.removeItem(
+        "habitacionEditando"
+    );
 
-    localStorage.removeItem("habitacionEditando");
-
-    // MENSAJE
-
-    alert("Habitación actualizada correctamente");
+    alert("Habitación actualizada");
 
 });
 
@@ -227,7 +271,9 @@ btnCerrarSesion.addEventListener("click", () => {
 });
 
 // ============================================
-// INICIAR SISTEMA
+// INICIAR
 // ============================================
+
+vistaDashboard.style.display = "block";
 
 renderizarHabitaciones();

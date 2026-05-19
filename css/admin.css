@@ -118,3 +118,88 @@ th, td{
     border-bottom: 1px solid #ddd;
     text-align: center;
 }
+
+/* ========================================= */
+/* DASHBOARD */
+/* ========================================= */
+
+.dashboard-cards{
+    display: flex;
+    gap: 20px;
+    margin-top: 30px;
+}
+
+.dashboard-card{
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    flex: 1;
+}
+
+.dashboard-card h3{
+    margin-bottom: 15px;
+    color: #1e293b;
+}
+
+.dashboard-card p{
+    font-size: 2rem;
+    font-weight: bold;
+    color: #0ea5e9;
+}
+
+/* ========================================= */
+/* BOTONES TABLAS */
+/* ========================================= */
+
+td button{
+    padding: 10px 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    color: white;
+}
+
+td button:first-child{
+    background-color: #0ea5e9;
+}
+
+.btn-cancelar{
+    background-color: #ef4444;
+}
+
+/* ========================================= */
+/* OCULTAR VISTAS */
+/* ========================================= */
+
+#vistaHabitaciones,
+#vistaReservas{
+    display: none;
+}
+
+/* ========================================= */
+/* RESPONSIVE */
+/* ========================================= */
+
+@media(max-width: 768px){
+
+    .admin-container{
+        flex-direction: column;
+    }
+
+    .sidebar{
+        width: 100%;
+    }
+
+    .dashboard-cards{
+        flex-direction: column;
+    }
+
+    .checkbox-group{
+        flex-direction: column;
+    }
+
+    .table-section{
+        overflow-x: auto;
+    }
+
+}

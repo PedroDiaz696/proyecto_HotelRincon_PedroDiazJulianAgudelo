@@ -9,7 +9,7 @@
     <title>Panel de Administración</title>
 
     <script src="./js/storage.js" defer></script>
-    <script src="js/admin.js" defer></script>
+    <script src="./js/admin.js" defer></script>
 
     <link rel="stylesheet" href="./css/admin.css">
 
@@ -37,11 +37,17 @@
 
                 <ul>
 
-                    <li>Dashboard</li>
+                    <li id="menuDashboard">
+                        Dashboard
+                    </li>
 
-                    <li>Habitaciones</li>
+                    <li id="menuHabitaciones">
+                        Habitaciones
+                    </li>
 
-                    <li>Reservas</li>
+                    <li id="menuReservas">
+                        Reservas
+                    </li>
 
                     <li id="cerrarSesion">
                         Cerrar sesión
@@ -59,183 +65,261 @@
 
         <main class="main-content">
 
-            <!-- TOPBAR -->
-
-            <header class="topbar">
-
-                <div>
-
-                    <h1>Administración de Habitaciones</h1>
-
-                    <p>
-                        Aquí puedes gestionar la información
-                        de las habitaciones del hotel.
-                    </p>
-
-                </div>
-
-            </header>
-
             <!-- ========================================= -->
-            <!-- FORMULARIO EDITAR -->
+            <!-- DASHBOARD -->
             <!-- ========================================= -->
 
-            <section class="form-section">
+            <section id="vistaDashboard">
 
-                <h2>Editar Habitación</h2>
+                <header class="topbar">
 
-                <form id="formHabitacion">
+                    <div>
 
-                    <!-- NOMBRE -->
+                        <h1>Dashboard</h1>
 
-                    <input
-                        type="text"
-                        id="nombre"
-                        placeholder="Nombre habitación"
-                        required
-                    >
-
-                    <!-- CAMAS -->
-
-                    <input
-                        type="number"
-                        id="camas"
-                        placeholder="Cantidad camas"
-                        required
-                    >
-
-                    <!-- PERSONAS -->
-
-                    <input
-                        type="number"
-                        id="personas"
-                        placeholder="Máximo personas"
-                        required
-                    >
-
-                    <!-- PRECIO -->
-
-                    <input
-                        type="number"
-                        id="precio"
-                        placeholder="Precio por noche"
-                        required
-                    >
-
-                    <!-- SERVICIOS -->
-
-                    <div class="checkbox-group">
-
-                        <label>
-
-                            <input
-                                type="checkbox"
-                                id="internet"
-                            >
-
-                            Internet
-
-                        </label>
-
-                        <label>
-
-                            <input
-                                type="checkbox"
-                                id="minibar"
-                            >
-
-                            Minibar
-
-                        </label>
-
-                        <label>
-
-                            <input
-                                type="checkbox"
-                                id="jacuzzi"
-                            >
-
-                            Jacuzzi
-
-                        </label>
+                        <p>
+                            Bienvenido al panel administrativo.
+                        </p>
 
                     </div>
 
-                    <!-- BOTÓN -->
+                </header>
 
-                    <button type="submit">
+                <div class="dashboard-cards">
 
-                        Guardar Cambios
+                    <div class="dashboard-card">
 
-                    </button>
+                        <h3>Total Habitaciones</h3>
 
-                </form>
+                        <p id="totalHabitaciones">
+                            0
+                        </p>
+
+                    </div>
+
+                    <div class="dashboard-card">
+
+                        <h3>Total Reservas</h3>
+
+                        <p id="totalReservas">
+                            0
+                        </p>
+
+                    </div>
+
+                </div>
 
             </section>
 
             <!-- ========================================= -->
-            <!-- TABLA HABITACIONES -->
+            <!-- HABITACIONES -->
             <!-- ========================================= -->
 
-            <section class="table-section">
+            <section id="vistaHabitaciones">
 
-                <h2>Habitaciones del Hotel</h2>
+                <header class="topbar">
 
-                <table>
+                    <div>
 
-                    <!-- ENCABEZADOS -->
+                        <h1>Administración de Habitaciones</h1>
 
-                    <thead>
+                        <p>
+                            Aquí puedes gestionar la información
+                            de las habitaciones del hotel.
+                        </p>
 
-                        <tr>
+                    </div>
 
-                            <th>Habitación</th>
+                </header>
 
-                            <th>Camas</th>
+                <!-- FORMULARIO -->
 
-                            <th>Personas</th>
+                <section class="form-section">
 
-                            <th>Precio</th>
+                    <h2>Editar Habitación</h2>
 
-                            <th>Servicios</th>
+                    <form id="formHabitacion">
 
-                            <th>Acciones</th>
+                        <input
+                            type="text"
+                            id="nombre"
+                            placeholder="Nombre habitación"
+                            required
+                        >
 
-                        </tr>
+                        <input
+                            type="number"
+                            id="camas"
+                            placeholder="Cantidad camas"
+                            required
+                        >
 
-                    </thead>
+                        <input
+                            type="number"
+                            id="personas"
+                            placeholder="Máximo personas"
+                            required
+                        >
 
-                    <!-- CONTENIDO DINÁMICO -->
+                        <input
+                            type="number"
+                            id="precio"
+                            placeholder="Precio por noche"
+                            required
+                        >
 
-                    <tbody id="tablaHabitaciones">
+                        <!-- SERVICIOS -->
 
-                        <!--
-                            AQUÍ JAVASCRIPT INSERTA
-                            LAS HABITACIONES
-                            DINÁMICAMENTE
-                        -->
+                        <div class="checkbox-group">
 
-                    </tbody>
+                            <label>
 
-                </table>
+                                <input
+                                    type="checkbox"
+                                    id="internet"
+                                >
+
+                                Internet
+
+                            </label>
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    id="minibar"
+                                >
+
+                                Minibar
+
+                            </label>
+
+                            <label>
+
+                                <input
+                                    type="checkbox"
+                                    id="jacuzzi"
+                                >
+
+                                Jacuzzi
+
+                            </label>
+
+                        </div>
+
+                        <button type="submit">
+
+                            Guardar Cambios
+
+                        </button>
+
+                    </form>
+
+                </section>
+
+                <!-- TABLA -->
+
+                <section class="table-section">
+
+                    <h2>Habitaciones del Hotel</h2>
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Habitación</th>
+                                <th>Camas</th>
+                                <th>Personas</th>
+                                <th>Precio</th>
+                                <th>Servicios</th>
+                                <th>Acciones</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaHabitaciones">
+
+                        </tbody>
+
+                    </table>
+
+                </section>
+
+            </section>
+
+            <!-- ========================================= -->
+            <!-- RESERVAS -->
+            <!-- ========================================= -->
+
+            <section id="vistaReservas">
+
+                <header class="topbar">
+
+                    <div>
+
+                        <h1>Gestión de Reservas</h1>
+
+                        <p>
+                            Aquí puedes gestionar las reservas.
+                        </p>
+
+                    </div>
+
+                </header>
+
+                <section class="table-section">
+
+                    <table>
+
+                        <thead>
+
+                            <tr>
+
+                                <th>Cliente</th>
+                                <th>Habitación</th>
+                                <th>Fecha</th>
+                                <th>Estado</th>
+                                <th>Acciones</th>
+
+                            </tr>
+
+                        </thead>
+
+                        <tbody id="tablaReservas">
+
+                            <tr>
+
+                                <td>Pedro Díaz</td>
+                                <td>Suite Deluxe</td>
+                                <td>20/05/2026</td>
+                                <td>Activa</td>
+
+                                <td>
+
+                                    <button class="btn-cancelar">
+
+                                        Cancelar
+
+                                    </button>
+
+                                </td>
+
+                            </tr>
+
+                        </tbody>
+
+                    </table>
+
+                </section>
 
             </section>
 
         </main>
 
     </div>
-
-    <!-- ========================================= -->
-    <!-- SCRIPTS -->
-    <!-- ========================================= -->
-
-    <!-- STORAGE -->
-
-    <script src="./js/storage.js"></script>
-
-    <!-- ADMIN -->
-
-    <script src="./js/admin.js"></script>
 
 </body>
 
