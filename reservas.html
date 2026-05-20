@@ -1,11 +1,93 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>reservas</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Reservas - Hotel El Rincón del Carmen</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <script src="js/sidebar.js" defer></script>
+  <script src="js/storage.js" defer></script>
+  <script src="js/reservas.js" defer></script>
 </head>
 <body>
-    
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">
+      <img src="./assets/icons/logotipoHotelRC.png" alt="HOTEL RC" class="logo">
+    </div>
+    <button class="btn-menu">
+      <img src="assets/icons/barra-de-menus.png" alt="☰" class="icono-menu">
+    </button>
+  </nav>
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar">
+    <div class="sidebar-logo">
+      <span class="sidebar-hotel-label">Hotel</span>
+      <h2>El Rincón</h2>
+      <span class="sidebar-hotel-sub">Del Carmen</span>
+    </div>
+    <nav>
+      <a href="index.html">Inicio</a>
+      <a href="reservas.html">Reservas</a>
+      <a href="contacto.html">Contacto</a>
+      <hr class="nav-divider">
+      <a href="login.html">Iniciar Sesión</a>
+      <a href="registro.html">Registrarse</a>
+    </nav>
+  </aside>
+
+  <!-- PORTADA -->
+  <section class="portada">
+    <div class="contenido-portada">
+      <h1>Reservas</h1>
+      <p>Consulta disponibilidad y aparta tu habitación</p>
+    </div>
+  </section>
+
+  <!-- FORMULARIO DE DISPONIBILIDAD -->
+  <section class="form-reserva">
+  <h2 class="titulo-seccion">Consulta disponibilidad</h2>
+  <form id="formDisponibilidad" class="formulario-disponibilidad">
+    <div class="campo">
+      <label for="fechaInicio">Fecha inicio</label>
+      <input type="date" id="fechaInicio" required>
+    </div>
+    <div class="campo">
+      <label for="fechaFin">Fecha fin</label>
+      <input type="date" id="fechaFin" required>
+    </div>
+    <div class="campo">
+      <label for="personas">Personas</label>
+      <input type="number" id="personas" min="1" required>
+    </div>
+    <button type="submit" class="btn-consultar">Consultar disponibilidad</button>
+  </form>
+</section>
+
+
+  <!-- RESULTADOS -->
+  <section id="resultadoDisponibilidad"></section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-contenedor">
+      <div class="footer-logo">
+        <h2>Hotel El Rincón</h2>
+        <span>Del Carmen</span>
+      </div>
+      <div class="footer-seccion">
+        <h3>Contacto</h3>
+        <p>📍 Bucaramanga, Colombia</p>
+        <p>📞 +57 322 2288597</p>
+        <p>✉ hotelrnc@gmail.com</p>
+      </div>
+    </div>
+    <div class="footer-copy">
+      <p>© 2026 Hotel El Rincón del Carmen | Todos los derechos reservados</p>
+    </div>
+  </footer>
+
 </body>
 </html>
