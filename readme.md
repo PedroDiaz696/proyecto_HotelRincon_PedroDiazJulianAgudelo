@@ -29,28 +29,26 @@
 ├── login.html
 ├── registro.html
 ├── admin.html
+├── readme.md
 │
 ├── css/
 │   ├── styles.css
-│   ├── reservas.css
 │   ├── contacto.css
 │   ├── login.css
+│   ├── registro.css
 │   └── admin.css
 │
 ├── js/
-│   ├── app.js
 │   ├── reservas.js
+│   ├── index.js
+│   ├── imagenes.js
 │   ├── login.js
 │   ├── registro.js
 │   ├── admin.js
 │   ├── storage.js
-│   ├── validations.js
 │   └── sidebar.js
 │
 ├── components/
-│   ├── navbar.js
-│   ├── footer.js
-│   ├── room-card.js
 │   └── carousel.js
 │
 └── assets/
