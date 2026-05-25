@@ -700,3 +700,37 @@ body {
     align-items: stretch;
   }
 }
+
+/* ========================================= */
+/* MIS RESERVAS */
+/* ========================================= */
+
+#misReservas{
+    padding: 60px 20px;
+}
+
+#misReservas .card-habitacion{
+    margin: 20px auto;
+}
+
+.btn-cancelar{
+    display: block;
+    margin: 20px auto;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 10px;
+    background-color: #dc2626;
+    color: white;
+    cursor: pointer;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.btn-cancelar:hover{
+    background-color: #991b1b;
+}
+
+.sin-reservas{
+    text-align: center;
+    margin-top: 20px;
+}

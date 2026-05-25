@@ -18,6 +18,9 @@ if(usuarioLogueado !== "true"){
 const tabla =
 document.getElementById("tablaHabitaciones");
 
+const tablaReservas =
+document.getElementById("tablaReservas");
+
 const formulario =
 document.getElementById("formHabitacion");
 
@@ -57,8 +60,6 @@ function ocultarVistas(){
 
 }
 
-// DASHBOARD
-
 menuDashboard.addEventListener("click", () => {
 
     ocultarVistas();
@@ -67,8 +68,6 @@ menuDashboard.addEventListener("click", () => {
 
 });
 
-// HABITACIONES
-
 menuHabitaciones.addEventListener("click", () => {
 
     ocultarVistas();
@@ -76,8 +75,6 @@ menuHabitaciones.addEventListener("click", () => {
     vistaHabitaciones.style.display = "block";
 
 });
-
-// RESERVAS
 
 menuReservas.addEventListener("click", () => {
 
@@ -88,20 +85,26 @@ menuReservas.addEventListener("click", () => {
 });
 
 // ============================================
-// OBTENER HABITACIONES
+// OBTENER DATOS
 // ============================================
 
 let habitaciones = obtenerHabitaciones();
+
+let reservas = obtenerReservas();
 
 // ============================================
 // DASHBOARD
 // ============================================
 
-document.getElementById("totalHabitaciones").textContent =
-habitaciones.length;
+function actualizarDashboard(){
 
-document.getElementById("totalReservas").textContent =
-1;
+    document.getElementById("totalHabitaciones").textContent =
+    habitaciones.length;
+
+    document.getElementById("totalReservas").textContent =
+    reservas.length;
+
+}
 
 // ============================================
 // RENDERIZAR HABITACIONES
@@ -180,6 +183,9 @@ function editarHabitacion(id){
     document.getElementById("precio").value =
     habitacion.precio;
 
+    document.getElementById("imagen").value =
+    habitacion.imagen;
+
     document.getElementById("internet").checked =
     habitacion.internet;
 
@@ -197,61 +203,171 @@ function editarHabitacion(id){
 }
 
 // ============================================
-// GUARDAR CAMBIOS
+// GUARDAR / AGREGAR
 // ============================================
 
 formulario.addEventListener("submit", (e) => {
 
     e.preventDefault();
 
-    const id =
-    Number(localStorage.getItem("habitacionEditando"));
+    const idEditando =
+    localStorage.getItem("habitacionEditando");
 
-    const habitacion =
-    habitaciones.find(h => h.id === id);
+    // EDITAR
 
-    if(!habitacion){
+    if(idEditando){
 
-        alert("Selecciona una habitación");
+        const habitacion =
+        habitaciones.find(
+            h => h.id === Number(idEditando)
+        );
 
-        return;
+        habitacion.nombre =
+        document.getElementById("nombre").value;
+
+        habitacion.camas =
+        Number(document.getElementById("camas").value);
+
+        habitacion.personas =
+        Number(document.getElementById("personas").value);
+
+        habitacion.precio =
+        Number(document.getElementById("precio").value);
+
+        habitacion.imagen =
+        document.getElementById("imagen").value;
+
+        habitacion.internet =
+        document.getElementById("internet").checked;
+
+        habitacion.minibar =
+        document.getElementById("minibar").checked;
+
+        habitacion.jacuzzi =
+        document.getElementById("jacuzzi").checked;
+
+        alert("Habitación actualizada");
+
+        localStorage.removeItem("habitacionEditando");
 
     }
 
-    habitacion.nombre =
-    document.getElementById("nombre").value;
+    // AGREGAR
 
-    habitacion.camas =
-    Number(document.getElementById("camas").value);
+    else{
 
-    habitacion.personas =
-    Number(document.getElementById("personas").value);
+        const nuevaHabitacion = {
 
-    habitacion.precio =
-    Number(document.getElementById("precio").value);
+            id: Date.now(),
 
-    habitacion.internet =
-    document.getElementById("internet").checked;
+            nombre:
+            document.getElementById("nombre").value,
 
-    habitacion.minibar =
-    document.getElementById("minibar").checked;
+            camas:
+            Number(document.getElementById("camas").value),
 
-    habitacion.jacuzzi =
-    document.getElementById("jacuzzi").checked;
+            personas:
+            Number(document.getElementById("personas").value),
+
+            precio:
+            Number(document.getElementById("precio").value),
+
+            imagen:
+            document.getElementById("imagen").value,
+
+            internet:
+            document.getElementById("internet").checked,
+
+            minibar:
+            document.getElementById("minibar").checked,
+
+            jacuzzi:
+            document.getElementById("jacuzzi").checked
+
+        };
+
+        habitaciones.push(nuevaHabitacion);
+
+        alert("Habitación agregada");
+
+    }
 
     guardarHabitaciones(habitaciones);
 
     renderizarHabitaciones();
 
+    actualizarDashboard();
+
     formulario.reset();
 
-    localStorage.removeItem(
-        "habitacionEditando"
-    );
-
-    alert("Habitación actualizada");
-
 });
+
+// ============================================
+// RENDERIZAR RESERVAS
+// ============================================
+
+function renderizarReservas(){
+
+    tablaReservas.innerHTML = "";
+
+    reservas.forEach((reserva, index) => {
+
+        const habitacion =
+        habitaciones.find(
+            h => h.id === reserva.habitacionId
+        );
+
+        tablaReservas.innerHTML += `
+
+            <tr>
+
+                <td>${habitacion.nombre}</td>
+
+                <td>${reserva.fechaInicio}</td>
+
+                <td>${reserva.fechaFin}</td>
+
+                <td>${reserva.personas}</td>
+
+                <td>$${reserva.total}</td>
+
+                <td>
+
+                    <button
+                    class="btn-cancelar"
+                    onclick="cancelarReserva(${index})">
+
+                        Cancelar
+
+                    </button>
+
+                </td>
+
+            </tr>
+
+        `;
+
+    });
+
+}
+
+// ============================================
+// CANCELAR RESERVA
+// ============================================
+
+function cancelarReserva(index){
+
+    reservas.splice(index, 1);
+
+    guardarReservas(reservas);
+
+    renderizarReservas();
+
+    actualizarDashboard();
+
+    alert("Reserva cancelada");
+
+}
 
 // ============================================
 // CERRAR SESIÓN
@@ -277,3 +393,7 @@ btnCerrarSesion.addEventListener("click", () => {
 vistaDashboard.style.display = "block";
 
 renderizarHabitaciones();
+
+renderizarReservas();
+
+actualizarDashboard();

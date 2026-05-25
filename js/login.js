@@ -22,7 +22,20 @@ loginForm.addEventListener("submit", (e) => {
         correo === admin.correo &&
         contraseña === admin.contraseña
     ){
-        localStorage.setItem("usuarioLogueado", "true");
+
+        localStorage.setItem(
+            "usuarioLogueado",
+            "true"
+        );
+
+        /*
+            GUARDAR USUARIO ACTIVO
+        */
+
+        localStorage.setItem(
+            "usuarioActivo",
+            admin.correo
+        );
 
         alert("Bienvenido Administrador");
 
@@ -33,7 +46,8 @@ loginForm.addEventListener("submit", (e) => {
 
     // OBTENER USUARIOS
 
-    let usuarios = JSON.parse(localStorage.getItem("usuarios")) || [];
+    let usuarios =
+    JSON.parse(localStorage.getItem("usuarios")) || [];
 
     // BUSCAR USUARIO
 
@@ -48,7 +62,19 @@ loginForm.addEventListener("submit", (e) => {
 
     if(usuarioEncontrado){
 
-        localStorage.setItem("usuarioLogueado", "true");
+        localStorage.setItem(
+            "usuarioLogueado",
+            "true"
+        );
+
+        /*
+            GUARDAR USUARIO ACTIVO
+        */
+
+        localStorage.setItem(
+            "usuarioActivo",
+            usuarioEncontrado.correo
+        );
 
         alert("Inicio de sesión exitoso");
 

@@ -19,9 +19,7 @@
 
     <div class="admin-container">
 
-        <!-- ========================================= -->
         <!-- SIDEBAR -->
-        <!-- ========================================= -->
 
         <aside class="sidebar">
 
@@ -59,15 +57,11 @@
 
         </aside>
 
-        <!-- ========================================= -->
-        <!-- CONTENIDO PRINCIPAL -->
-        <!-- ========================================= -->
+        <!-- CONTENIDO -->
 
         <main class="main-content">
 
-            <!-- ========================================= -->
             <!-- DASHBOARD -->
-            <!-- ========================================= -->
 
             <section id="vistaDashboard">
 
@@ -111,9 +105,7 @@
 
             </section>
 
-            <!-- ========================================= -->
             <!-- HABITACIONES -->
-            <!-- ========================================= -->
 
             <section id="vistaHabitaciones">
 
@@ -124,8 +116,7 @@
                         <h1>Administración de Habitaciones</h1>
 
                         <p>
-                            Aquí puedes gestionar la información
-                            de las habitaciones del hotel.
+                            Aquí puedes gestionar las habitaciones.
                         </p>
 
                     </div>
@@ -136,7 +127,7 @@
 
                 <section class="form-section">
 
-                    <h2>Editar Habitación</h2>
+                    <h2>Agregar / Editar Habitación</h2>
 
                     <form id="formHabitacion">
 
@@ -165,6 +156,13 @@
                             type="number"
                             id="precio"
                             placeholder="Precio por noche"
+                            required
+                        >
+
+                        <input
+                            type="text"
+                            id="imagen"
+                            placeholder="Ruta imagen ejemplo: ./assets/img/habitacion7.jpg"
                             required
                         >
 
@@ -250,9 +248,7 @@
 
             </section>
 
-            <!-- ========================================= -->
             <!-- RESERVAS -->
-            <!-- ========================================= -->
 
             <section id="vistaReservas">
 
@@ -278,10 +274,11 @@
 
                             <tr>
 
-                                <th>Cliente</th>
                                 <th>Habitación</th>
-                                <th>Fecha</th>
-                                <th>Estado</th>
+                                <th>Fecha Inicio</th>
+                                <th>Fecha Fin</th>
+                                <th>Personas</th>
+                                <th>Total</th>
                                 <th>Acciones</th>
 
                             </tr>
@@ -289,25 +286,6 @@
                         </thead>
 
                         <tbody id="tablaReservas">
-
-                            <tr>
-
-                                <td>Pedro Díaz</td>
-                                <td>Suite Deluxe</td>
-                                <td>20/05/2026</td>
-                                <td>Activa</td>
-
-                                <td>
-
-                                    <button class="btn-cancelar">
-
-                                        Cancelar
-
-                                    </button>
-
-                                </td>
-
-                            </tr>
 
                         </tbody>
 

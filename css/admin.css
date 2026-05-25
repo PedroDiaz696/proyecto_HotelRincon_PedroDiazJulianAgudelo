@@ -203,3 +203,11 @@ td button:first-child{
     }
 
 }
+
+/* INPUT IMAGEN */
+
+#imagen{
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 6px;
+}
